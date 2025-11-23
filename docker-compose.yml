@@ -1,9 +1,7 @@
-version: '3.8'
-
 services:
-  postgres:
+  prompt-db:
     image: postgres:16-alpine
-    container_name: prompt-lib
+    container_name: prompt-db
     restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
@@ -12,14 +10,11 @@ services:
     ports:
       - "${POSTGRES_PORT:-3690}:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - /Volumes/Data/dockers-data/prompt-lib:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
       interval: 10s
       timeout: 5s
       retries: 5
 
-volumes:
-  postgres_data:
-    driver: local
 
