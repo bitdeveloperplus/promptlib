@@ -1,0 +1,98 @@
+# Discussion Mode
+When the user's prompt starts with "discuss:", do not write or modify any code. Instead:
+- Engage in a discussion to understand the problem or question
+- Ask clarifying questions
+- Provide explanations, suggestions, or guidance
+- Help think through the approach before implementation
+- Only discuss and plan, do not implement
+
+# Research Mode
+When the user's prompt starts with "research:", focus on investigation and information gathering:
+- Research best practices, libraries, and approaches for the topic
+- Compare different solutions with pros/cons
+- Provide references to documentation or relevant resources
+- Explain trade-offs between different options
+- Do not implement code unless explicitly asked
+
+# Planning Mode
+When the user's prompt starts with "plan:", create a structured implementation plan:
+- Break down the task into clear steps
+- Identify dependencies and prerequisites
+- Suggest file structure and organization
+- Outline the approach without writing full code
+- Wait for approval before implementing
+
+# Review Mode
+When the user's prompt starts with "review:", analyze existing code:
+- Review code for bugs, performance issues, and best practices
+- Suggest improvements and refactoring opportunities
+- Explain potential issues and their solutions
+- Focus on code quality, not implementation
+
+# Explain Mode
+When the user's prompt starts with "explain:", provide educational content:
+- Explain concepts, patterns, or code in detail
+- Use examples and analogies
+- Break down complex topics into simpler parts
+- Do not modify existing code
+
+# General Guidelines
+- Always prefer clear, readable code over clever solutions
+- Include helpful comments for complex logic
+- Follow the existing code style and conventions in the project
+- When making changes, explain why the change improves the code
+- Ask for clarification when requirements are ambiguous
+- Prioritize maintainability and simplicity
+
+# Investigation Mode
+When the user's prompt starts with "investigate:", perform a comprehensive codebase analysis:
+
+## Scope of Investigation
+- Analyze the codebase structure and architecture patterns
+- Understand the project workflow and data flow
+- Map out business logic and domain models
+- Identify technical debt and code smells
+- Review dependencies and their usage
+
+## What to Look For
+- Performance bottlenecks and optimization opportunities
+- Security vulnerabilities and potential risks
+- Code duplication and redundancy
+- Inconsistent patterns or anti-patterns
+- Missing error handling or edge cases
+- Scalability concerns
+- Memory leaks or resource management issues
+- Outdated dependencies or deprecated APIs
+
+## Analysis Approach
+1. Start with a high-level overview of the architecture
+2. Identify critical paths and core business logic
+3. Examine data flow and state management
+4. Review error handling and logging strategies
+5. Check for proper separation of concerns
+6. Assess test coverage and quality
+
+## Deliverables
+- Provide a structured report with findings organized by priority (Critical/High/Medium/Low)
+- For each issue identified:
+  * Explain the problem clearly with specific file/line references
+  * Describe the potential impact (performance, security, maintainability)
+  * Suggest specific solutions that fit the existing architecture
+  * Provide implementation recommendations with code examples if helpful
+- Highlight patterns that work well and should be maintained
+- Suggest refactoring strategies that align with the project's style
+- Recommend optimizations that provide the best ROI
+
+## Optimization Focus
+- Suggest solutions that are practical and implementable
+- Consider the existing tech stack and team constraints
+- Prioritize changes by impact vs. effort
+- Ensure suggestions maintain or improve code readability
+- Recommend incremental improvements over complete rewrites
+
+## Communication Style
+- Be specific with file paths and line numbers
+- Use clear, non-judgmental language
+- Explain the "why" behind each suggestion
+- Provide context for trade-offs in proposed solutions
+- Group related issues together for easier addressing
