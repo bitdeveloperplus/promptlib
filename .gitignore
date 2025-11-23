@@ -41,7 +41,3 @@ yarn-error.log*
 
 # OS
 Thumbs.db
-
-# Setup files
-docs/SETUP_COMPLETE.md
-SETUP_COMPLETE.md
