@@ -28,7 +28,7 @@ prompt-manage/
 ### Prerequisites
 
 - Node.js >= 20
-- PostgreSQL database
+- Docker and Docker Compose (for database)
 - npm 9.6.7
 
 ### Installation
@@ -37,12 +37,34 @@ prompt-manage/
 # Install dependencies
 npm install
 
-# Generate Prisma client
-npm run db:generate
+# Start PostgreSQL database with Docker
+docker-compose up -d
 
 # Set up environment variables
 cp .env.example .env
-# Edit .env with your database URL and other configs
+# Edit .env if needed (default values should work)
+
+# Generate Prisma client
+npm run db:generate
+```
+
+### Database Setup with Docker
+
+```bash
+# Start PostgreSQL container
+docker-compose up -d
+
+# Check if database is running
+docker-compose ps
+
+# View database logs
+docker-compose logs postgres
+
+# Stop database
+docker-compose down
+
+# Stop and remove all data (⚠️ deletes data)
+docker-compose down -v
 ```
 
 ### Development
@@ -61,14 +83,20 @@ cd apps/web && npm run dev
 ### Database
 
 ```bash
-# Pull database schema
+# Make sure Docker PostgreSQL is running
+docker-compose up -d
+
+# Pull database schema (if database already has tables)
 npm run db:pull
 
 # Generate Prisma client
 npm run db:generate
 
-# Run migrations (when you add them)
+# Create and run migrations
 npx prisma migrate dev
+
+# Open Prisma Studio (database GUI)
+npx prisma studio
 ```
 
 ## Scripts
@@ -82,18 +110,30 @@ npx prisma migrate dev
 
 ## Environment Variables
 
-Create a `.env` file in the root:
+Copy `.env.example` to `.env`:
+
+```bash
+cp .env.example .env
+```
+
+The `.env` file includes:
 
 ```env
-# Database
-DATABASE_URL="postgresql://user:password@localhost:5432/prompt_manage"
+# Database (Docker PostgreSQL)
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=prompt_manage
+POSTGRES_PORT=3690
+DATABASE_URL="postgresql://postgres:postgres@localhost:3690/prompt_manage"
 
 # API
 PORT=3001
 FRONTEND_URL=http://localhost:3000
 
-# Add other environment variables as needed
+# Other configs...
 ```
+
+**Note:** Default values work for local development. Change passwords and secrets for production!
 
 ## Next Steps
 
